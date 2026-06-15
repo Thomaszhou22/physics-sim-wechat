@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.toolbar {
+  display: flex;
+  gap: 16rpx;
+  padding: 16rpx 24rpx;
+  background: #1a1a2e;
+  border-bottom: 2rpx solid #303C55;
+}
+
+.tool-btn {
+  flex: 1;
+  background: #0f3460;
+  color: #64ffda;
+  border: 2rpx solid #303C55;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  padding: 12rpx 0;
+  line-height: 1.5;
+}
+
+.tool-btn::after {
+  border: none;
+}
+
+.webview {
+  flex: 1;
+}

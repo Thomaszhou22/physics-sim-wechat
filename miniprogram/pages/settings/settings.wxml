@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- API Provider 选择 -->
+  <view class="section">
+    <text class="section-title">API 服务商</text>
+    <picker bindchange="onProviderChange" value="{{provider}}" range="{{providerKeys}}" range-key="">
+      <view class="picker-value">
+        <text>{{providers[provider].label}}</text>
+        <text class="picker-arrow">▾</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- API Key -->
+  <view class="section">
+    <text class="section-title">API Key</text>
+    <input
+      class="input-base"
+      type="text"
+      value="{{apiKey}}"
+      placeholder="输入你的 API Key"
+      placeholder-class="placeholder"
+      bindinput="onApiKeyInput"
+    />
+  </view>
+
+  <!-- Base URL -->
+  <view class="section">
+    <text class="section-title">Base URL</text>
+    <input
+      class="input-base"
+      type="text"
+      value="{{baseUrl}}"
+      placeholder="API 基础地址（通常无需修改）"
+      placeholder-class="placeholder"
+      bindinput="onBaseUrlInput"
+    />
+  </view>
+
+  <!-- Model -->
+  <view class="section">
+    <text class="section-title">模型名称</text>
+    <input
+      class="input-base"
+      type="text"
+      value="{{model}}"
+      placeholder="如 gemini-2.5-flash"
+      placeholder-class="placeholder"
+      bindinput="onModelInput"
+    />
+  </view>
+
+  <!-- 后端服务地址 -->
+  <view class="section">
+    <text class="section-title">后端服务地址</text>
+    <input
+      class="input-base"
+      type="text"
+      value="{{serverUrl}}"
+      placeholder="http://localhost:3456"
+      placeholder-class="placeholder"
+      bindinput="onServerUrlInput"
+    />
+    <text class="section-hint">开发时使用 localhost，部署后改为实际地址</text>
+  </view>
+
+  <!-- 保存按钮 -->
+  <button class="btn-primary save-btn" bindtap="onSave">💾 保存配置</button>
+
+  <view class="tips">
+    <text class="tips-title">💡 使用提示</text>
+    <text class="tips-item">• Gemini API Key 可在 Google AI Studio 获取</text>
+    <text class="tips-item">• 后端服务需运行在同一网络下</text>
+    <text class="tips-item">• web-view 需要配置业务域名</text>
+    <text class="tips-item">• 开发时可在工具中关闭域名校验</text>
+  </view>
+</view>

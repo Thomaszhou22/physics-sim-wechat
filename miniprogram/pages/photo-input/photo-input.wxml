@@ -1,0 +1,59 @@
+<view class="container">
+  <!-- 拍照/选择区域 -->
+  <block wx:if="{{!imagePath}}">
+    <view class="upload-area">
+      <view class="upload-btn" bindtap="chooseCamera">
+        <text class="upload-icon">📷</text>
+        <text class="upload-text">拍照识别</text>
+      </view>
+      <view class="upload-btn" bindtap="chooseFromAlbum">
+        <text class="upload-icon">🖼️</text>
+        <text class="upload-text">从相册选择</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 图片预览 -->
+  <block wx:if="{{imagePath}}">
+    <view class="preview-section">
+      <image class="preview-img" src="{{imagePath}}" mode="widthFix" />
+      <view class="re-choose" bindtap="reChoose">重新选择</view>
+    </view>
+  </block>
+
+  <!-- OCR 结果 -->
+  <block wx:if="{{showOcrResult}}">
+    <view class="ocr-section">
+      <text class="section-title">识别结果（可编辑）</text>
+      <textarea
+        class="ocr-input"
+        value="{{ocrText}}"
+        bindinput="onOcrTextInput"
+        auto-height
+        maxlength="-1"
+        placeholder="识别结果将显示在这里..."
+      />
+      <!-- 学科切换 -->
+      <view class="subject-switch">
+        <view class="subject-btn {{subject === 'physics' ? 'active' : ''}}" data-subject="physics" bindtap="onSubjectChange">⚛️ 物理</view>
+        <view class="subject-btn {{subject === 'math' ? 'active' : ''}}" data-subject="math" bindtap="onSubjectChange">📐 数学</view>
+      </view>
+      <!-- 生成按钮 -->
+      <button class="btn-primary" bindtap="onGenerate" disabled="{{loading}}">
+        🚀 生成模拟
+      </button>
+    </view>
+  </block>
+
+  <!-- 加载提示 -->
+  <view class="loading-overlay" wx:if="{{loading}}">
+    <view class="loading-content">
+      <view class="loading-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+      <text class="loading-text">{{loadingText}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+node_modules/
+public/sims/*.html
+!public/sims/.gitkeep
+.env
+*.log

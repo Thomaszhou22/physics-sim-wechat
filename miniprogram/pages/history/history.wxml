@@ -1,0 +1,31 @@
+<view class="container">
+  <block wx:if="{{!isEmpty}}">
+    <view class="history-list">
+      <view
+        wx:for="{{history}}"
+        wx:key="id"
+        class="history-item"
+        data-item="{{item}}"
+        bindtap="onTap"
+      >
+        <view class="item-left">
+          <text class="item-subject">{{item.subject === 'physics' ? '⚛️' : '📐'}}</text>
+        </view>
+        <view class="item-body">
+          <text class="item-prompt">{{item.prompt}}</text>
+          <view class="item-meta">
+            <text class="item-tag" wx:if="{{item.knowledgePoint}}">{{item.knowledgePoint}}</text>
+            <text class="item-time">{{item.timeStr}}</text>
+          </view>
+        </view>
+        <text class="item-arrow">›</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="empty-state" wx:if="{{isEmpty}}">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">暂无历史记录</text>
+    <text class="empty-hint">生成过的模拟会显示在这里</text>
+  </view>
+</view>

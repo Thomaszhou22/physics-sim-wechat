@@ -1,0 +1,55 @@
+<view class="container">
+  <!-- 学科切换 -->
+  <view class="subject-switch">
+    <view class="subject-btn {{subject === 'physics' ? 'active' : ''}}" data-subject="physics" bindtap="onSubjectChange">⚛️ 物理</view>
+    <view class="subject-btn {{subject === 'math' ? 'active' : ''}}" data-subject="math" bindtap="onSubjectChange">📐 数学</view>
+  </view>
+
+  <!-- 文本输入 -->
+  <view class="input-section">
+    <textarea
+      class="prompt-input"
+      placeholder="输入物理题目，如：一个小球从10米高处自由落下，求落地时间和速度..."
+      placeholder-class="placeholder"
+      value="{{prompt}}"
+      bindinput="onInput"
+      maxlength="-1"
+      auto-height
+    />
+    <text class="char-count">{{prompt.length}} 字</text>
+  </view>
+
+  <!-- 知识点标签 -->
+  <view class="tags-section">
+    <text class="section-title">知识点（可选）</text>
+    <view class="tags-wrap">
+      <view
+        wx:for="{{tags}}"
+        wx:key="*this"
+        class="tag {{knowledgePoint === item ? 'active' : ''}}"
+        data-tag="{{item}}"
+        bindtap="onTagTap"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 生成按钮 -->
+  <view class="btn-wrap">
+    <button class="btn-primary" bindtap="onGenerate" disabled="{{loading}}">
+      {{loading ? '生成中...' : '🚀 生成模拟'}}
+    </button>
+  </view>
+
+  <!-- 加载提示 -->
+  <view class="loading-overlay" wx:if="{{loading}}">
+    <view class="loading-content">
+      <view class="loading-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+      <text class="loading-text">{{loadingText}}</text>
+      <text class="text-secondary">AI 正在编写物理动画代码，约需 10-30 秒</text>
+    </view>
+  </view>
+</view>

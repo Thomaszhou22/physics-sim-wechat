@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="toolbar" wx:if="{{url}}">
+    <button class="tool-btn" bindtap="onSave">💾 保存</button>
+    <button class="tool-btn" open-type="share">📤 分享</button>
+  </view>
+  <web-view wx:if="{{url}}" src="{{url}}" class="webview"></web-view>
+</view>

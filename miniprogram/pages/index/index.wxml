@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title-large">⚡ 物理模拟实验室</text>
+    <text class="subtitle">AI 驱动的物理/数学动态模拟生成器</text>
+  </view>
+
+  <!-- 功能卡片 -->
+  <view class="cards">
+    <view class="card-item" bindtap="goToText">
+      <view class="card-icon">✏️</view>
+      <view class="card-body">
+        <text class="card-title">文字描述</text>
+        <text class="card-desc">手动输入题目，AI 自动生成模拟</text>
+      </view>
+      <view class="card-arrow">›</view>
+    </view>
+
+    <view class="card-item" bindtap="goToPhoto">
+      <view class="card-icon">📷</view>
+      <view class="card-body">
+        <text class="card-title">拍照识别</text>
+        <text class="card-desc">拍题目照片，自动识别并生成</text>
+      </view>
+      <view class="card-arrow">›</view>
+    </view>
+
+    <view class="card-item" bindtap="goToFile">
+      <view class="card-icon">📁</view>
+      <view class="card-body">
+        <text class="card-title">文件上传</text>
+        <text class="card-desc">上传含题目的图片文件</text>
+      </view>
+      <view class="card-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="footer-tip">
+    <text class="text-secondary">💡 提示：首次使用请先在「设置」中配置 API Key</text>
+  </view>
+</view>
